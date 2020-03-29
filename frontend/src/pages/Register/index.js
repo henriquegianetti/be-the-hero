@@ -40,7 +40,7 @@ export default function Register(){
     return (
         <div className="register-container">
             <div className="content">
-                <section>
+                    <section>
                     <img src={logoImg} alt="Be The Hero"/>
                 
                     <h1>Cadastro</h1>
@@ -53,7 +53,7 @@ export default function Register(){
                         Voltar para o Logon
                     </Link>
 
-                </section>
+                    </section>
 
 
                 <form onSubmit={handleRegister}>
@@ -93,7 +93,7 @@ export default function Register(){
                     </div>
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
+                </div>
             </div>
-        </div>
     );
 }
