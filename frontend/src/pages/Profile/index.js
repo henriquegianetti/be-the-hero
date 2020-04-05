@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import{ Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FiPower, FiTrash2, FiPlusCircle} from 'react-icons/fi';
 
 import api from '../../services/api';
 import './styles.css';
@@ -31,7 +31,7 @@ export default function Profile(){
                     Authorization: ongId,
                 }
             });
-            setIncidents(incidents.filter(incident => incident.id != id));
+            setIncidents(incidents.filter(incident => incident.id !== id));
         } catch(err){
             alert('Erro ao deletar caso, tente novamente.');
         }
@@ -44,17 +44,22 @@ export default function Profile(){
 
 
     return (
+
         <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="Be The Hero"/>
-                    <span>Bem vinda, {ongName}</span>
+        <header>
+            <img src={logoImg} alt="Be The Hero"/>
+                <span>Bem vinda, {ongName}</span>
 
-                <Link className="button" to="/incidents/new">Cadastrar novo caso</Link>
-                <button onClick={handleLogout} type="button">
-                    <FiPower size={18} color="#E02041" />
-                </button>
-            </header>
-
+            <Link className="buttonNewIncident" to="/incidents/new"><FiPlusCircle size={40} style={{}}/>
+                <div className="text-label">
+                    Cadastrar novo caso
+                </div>
+            </Link>
+            <button onClick={handleLogout} type="button">
+                <FiPower size={18} color="#E02041" />
+            </button>
+        </header>
+ 
             <h1>Casos cadastrados</h1>
             <ul>
                 {incidents.map(incident => (
